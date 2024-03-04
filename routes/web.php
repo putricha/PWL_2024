@@ -27,15 +27,25 @@ Route::get('/world', function () {
     return 'World';
 });
 
-Route :: get ('/pesan', function(){
+Route::get('/pesan', function () {
     return 'Selamat Datang';
 });
 
-Route :: get ('/about',function(){
+Route::get('/about', function () {
     return '2241720036 => Putri Norchasana';
 });
 
-Route::get('/user/{name}', function ($name) {
+// Route::get('/user/{name}', function ($name) {
+//     return 'Nama saya ' . $name;
+// });
+
+// Route::get(
+//     '/user/{name?}',
+//     function ($name = null) {
+//         return 'Nama saya ' . $name;
+//     }
+// );
+Route::get('/user/{name?}', function ($name = 'John') {
     return 'Nama saya ' . $name;
 });
 
@@ -44,7 +54,7 @@ Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 });
 
 Route::get('/articles/{id}', function ($id) {
-return 'Halaman Artikel dengan ID ' . $id ;
+    return 'Halaman Artikel dengan ID ' . $id;
 });
 
 Route::get(' / hello', [WelcomeController::class, 'hello']);
@@ -66,3 +76,8 @@ Route::get('/greeting', [
     WelcomeController::class,
     'greeting'
 ]);
+
+
+// Route::get('/greeting', function () {
+//     return view('blog.hello', ['name' => 'Putri']);
+// });
